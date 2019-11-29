@@ -113,7 +113,7 @@ import java.util.PropertyResourceBundle;
         
 
         telemetry.addData("Path", "Complete");
-        telemetry.update()
-        sleep(1000)
+        telemetry.update();
+        sleep(1000);
     }
  }
