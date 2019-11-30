@@ -59,7 +59,7 @@ import java.util.PropertyResourceBundle;
 
      /* Declare OpMode members */
      HardwareTestBot    robot = new hardwareTestbot(); //Use a pushbot's hardware
-     private Elapsed Time   runtime = new ElapsedTime();
+     private ElapsedTime()   runtime = new ElapsedTime();
 
      @Override
      public void runOpMode() {
@@ -79,37 +79,27 @@ import java.util.PropertyResourceBundle;
 
         //Drive the robot forward
         robot.leftFrontMotor.setPower(1); //motor values are from -1 to 1, 0 = stop
-        robot.leftBackMotor.setPower(1);
         robot.rightFrontMotor.setPower(1);
-        robot.rightBackMotor.setPower(1);
         sleep(1000); // stay here in the code for 1 second, dont move on to the next instruction // Seconds counted in milliseconds
 
         //Turn the robot left
         robot.leftFrontMotor.setPower(-0.5); //motor values are from -1 to 1, 0 = stop
-        robot.leftBackMotor.setPower(-0.5);
         robot.rightFrontMotor.setPower(0.5);
-        robot.rightBackMotor.setPower(0.5);
         sleep(750); 
 
         //Drive the robot forward
         robot.leftFrontMotor.setPower(1); //motor values are from -1 to 1, 0 = stop
-        robot.leftBackMotor.setPower(1));
         robot.rightFrontMotor.setPower(1);
-        robot.rightBackMotor.setPower(1);
         sleep(750); 
 
         //Turn the robot right
         robot.leftFrontMotor.setPower(0.5); //motor values are from -1 to 1, 0 = stop
-        robot.leftBackMotor.setPower(0.5);
         robot.rightFrontMotor.setPower(-0.5);
-        robot.rightBackMotor.setPower(-0.5);
         sleep(750); 
 
         //Stop the robot
         robot.leftFrontMotor.setPower(0); //motor values are from -1 to 1, 0 = stop
-        robot.leftBackMotor.setPower(0);
         robot.rightFrontMotor.setPower(0);
-        robot.rightBackMotor.setPower(0);
         
 
         telemetry.addData("Path", "Complete");
