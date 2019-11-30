@@ -59,7 +59,7 @@ import java.util.PropertyResourceBundle;
 
      /* Declare OpMode members */
      HardwareTestBot    robot = new hardwareTestbot(); //Use a pushbot's hardware
-     private ElapsedTime()   runtime = new ElapsedTime();
+     private ElapsedTime()    runtime = new ElapsedTime();
 
      @Override
      public void runOpMode() {
