@@ -8,7 +8,7 @@
   <a href = "Twitter">https://twitter.com/ForcesFtc</a> |
   <a href = "Instagram">https://www.instagram.com/ftcforcesunknown/</a> 
   <br><br>
-  <b>Autonomous Period: <b/><a href = "Autonomous_Period">#</a>
+  <b>Autonomous Period: <b/><a href = "Autonomous_Period">https://bit.ly/2LviHKI</a>
   <br><br>
-  <b>Driver Controlled Period: <b/><a href = "Driver_Period">https://github.com/Pooky436/FTC-2019-2020---Main-Code/tree/master/Driver%20Controlled%20Period</a>
+  <b>Driver Controlled Period: <b/><a href = "Driver_Period">https://bit.ly/2DTOQqP</a>
 </p>
