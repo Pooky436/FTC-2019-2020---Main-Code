@@ -53,13 +53,16 @@ import java.util.PropertyResourceBundle;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
- @Autonomous(name = "AutoR", group = "AutonomousPeriod")
+ @Autonomous(name = "AutoR_4WD", group = "AutonomousPeriod")
  public class AutoR extends LinearOpMode {
 
      private Elapsed Time runtime = new ElapsedTime();
 
      DcMotor leftDrive = null;
      DcMotor rightDrive = null;
+
+     DcMotor leftDriveBack = null;
+     DcMotor rightDriveBack = null;
 
      //PEOPLE READ UP HERE
      private int turnTime = 500; // edit '500' value
@@ -73,6 +76,10 @@ import java.util.PropertyResourceBundle;
           */
          leftDrive  = hardwareMap.get(DcMotor.class, "Left Motor");
          rightDrive = hardwareMap.get(DcMotor.class, "Right Motor");
+
+         leftDriveBack = harwareMap.get(DcMotor.class, "Left Motor Back")
+         rightDriveBack = harwareMap.get(DcMotor.class, "Right Motor Back")
+
 
          //Send telemetry message to signify robot waiting;
          telemetry.addData("Status", "Ready to run");
@@ -98,6 +105,8 @@ import java.util.PropertyResourceBundle;
          //move
          leftDrive.setPower(dir);
          rightDrive.setPower(dir);
+         leftDriveBack.setPower(dir);
+         rightDriveBack.setPower(dir);
 
 
          //formula for distance: speed(ex 1m/s) * dist * 1000
@@ -110,27 +119,37 @@ import java.util.PropertyResourceBundle;
          //stop
          leftDrive.setPower(0);
          rightDrive.setPower(0);
+         leftDriveBack.setPower(0);
+         rightDriveBack.setPower(0);
      }
 
      private void TurnRight90()
      {
          leftDrive.setPower(0.5);
          rightDrive.setPower(-0.5);
+         leftDriveBack.setPower(0.5);
+         rightDriveBack.setPower(-0.5);
 
          sleep(turnTime);
 
          leftDrive.setPower(0);
          rightDrive.setPower(0);
+         leftDriveBack.setPower(0);
+         rightDriveBack.setPower(0);
      }
 
      private void TurnLeft90()
      {
          leftDrive.setPower(-0.5);
          rightDrive.setPower(0.5);
+         leftDriveBack.setPower(-0.5);
+         rightDriveBack.setPower(0.5);
 
          sleep(turnTime);
 
          leftDrive.setPower(0);
          rightDrive.setPower(0);
+         leftDriveBack.setPower(0);
+         rightDriveBack.setPower(0);
      }
  }

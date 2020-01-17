@@ -53,84 +53,57 @@ import java.util.PropertyResourceBundle;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
- @Autonomous(name = "AutoR", group = "AutonomousPeriod")
- public class AutoR extends LinearOpMode {
+ @Autonomous(name = "TestBot: Simple Autonomous", group = "TestBot")
+ //@Disabled
+ public class TestBotSimpleAuto extends LinearOpMode {
 
-     private Elapsed Time runtime = new ElapsedTime();
-
-     DcMotor leftDrive = null;
-     DcMotor rightDrive = null;
-
-     //PEOPLE READ UP HERE
-     private int turnTime = 500; // edit '500' value
+     /* Declare OpMode members */
+     HardwareTestBot    robot = new hardwareTestbot(); //Use a pushbot's hardware
+     private ElapsedTime    runtime = new ElapsedTime();
 
      @Override
      public void runOpMode() {
 
-         /*
-          * Initialize the drive system variables
-          * The init() method of the hardware class does all the work here
-          */
-         leftDrive  = hardwareMap.get(DcMotor.class, "Left Motor");
-         rightDrive = hardwareMap.get(DcMotor.class, "Right Motor");
+        /*
+        * Initialize the drive system variables
+        * The init() method of the hardware class does all the work here
+        */
+        robot.init(hardwareMap);
 
-         //Send telemetry message to signify robot waiting;
-         telemetry.addData("Status", "Ready to run");
-         telemetry.update();
+        //Send telemetry message to signify robot waiting;
+        telemetry.addData("Status", "Ready to run");
+        telemetry.update();
+        
+        //Wait for the game to start (driver presses PLAY)
+        waitForStart();
 
-         //Wait for the game to start (driver presses PLAY)
-         waitForStart();
+        //Drive the robot forward
+        robot.leftFrontMotor.setPower(1); //motor values are from -1 to 1, 0 = stop
+        robot.rightFrontMotor.setPower(1);
+        sleep(1000); // stay here in the code for 1 second, dont move on to the next instruction // Seconds counted in milliseconds
 
-         //Do stuff :
+        //Turn the robot left
+        robot.leftFrontMotor.setPower(-0.5); //motor values are from -1 to 1, 0 = stop
+        robot.rightFrontMotor.setPower(0.5);
+        sleep(750); 
 
-         Move(1, 3);
-         TurnLeft90();
-         TurnLeft90();
-         TurnRight90();
+        //Drive the robot forward
+        robot.leftFrontMotor.setPower(1); //motor values are from -1 to 1, 0 = stop
+        robot.rightFrontMotor.setPower(1);
+        sleep(750); 
 
+        //Turn the robot right
+        robot.leftFrontMotor.setPower(0.5); //motor values are from -1 to 1, 0 = stop
+        robot.rightFrontMotor.setPower(-0.5);
+        sleep(750); 
 
-         telemetry.addData("Path", "Complete");
-         telemetry.update();
-     }
+        //Stop the robot
+        robot.leftFrontMotor.setPower(0); //motor values are from -1 to 1, 0 = stop
+        robot.rightFrontMotor.setPower(0);
+        
 
-     private void Move(double dir, float distMeters)
-     {
-         //move
-         leftDrive.setPower(dir);
-         rightDrive.setPower(dir);
-
-
-         //formula for distance: speed(ex 1m/s) * dist * 1000
-
-         double speed = 1;
-
-         //wait
-         sleep(speed * dist * 1000);
-
-         //stop
-         leftDrive.setPower(0);
-         rightDrive.setPower(0);
-     }
-
-     private void TurnRight90()
-     {
-         leftDrive.setPower(0.5);
-         rightDrive.setPower(-0.5);
-
-         sleep(turnTime);
-
-         leftDrive.setPower(0);
-         rightDrive.setPower(0);
-     }
-
-     private void TurnLeft90()
-     {
-         leftDrive.setPower(-0.5);
-         rightDrive.setPower(0.5);
-
-         sleep(turnTime);
-
-         leftDrive.setPower(0);
-         rightDrive.setPower(0);
-     }
+        telemetry.addData("Path", "Complete");
+        telemetry.update();
+        sleep(1000);
+    }
  }
