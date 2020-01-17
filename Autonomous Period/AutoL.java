@@ -53,8 +53,7 @@ import java.util.PropertyResourceBundle;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name = "AutoL", group = "TestBot")
-//@Disabled
+@Autonomous(name = "AutoL", group = "AutonomousPeriod")
 public class AutoL extends LinearOpMode {
 
     /* Declare OpMode members */
@@ -76,6 +75,9 @@ public class AutoL extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "Left Motor");
         rightDrive = hardwareMap.get(DcMotor.class, "Right Motor");
 
+        leftDrive.setMode(DCMotorController.RunMode.RUN_USING_ENCODERS);
+        rightDrive.setMode(DCMotorController.RunMode.RUN_USING_ENCODERS);
+
         //Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");
         telemetry.update();
@@ -83,12 +85,11 @@ public class AutoL extends LinearOpMode {
         //Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        //Do stuff ex:
+        //Do stuff :
 
-        Move(1, 3);
-        TurnLeft90();
-        TurnLeft90();
-        TurnRight90();
+        Drive(1, 1440);
+
+        Drive(1, 1)
 
 
         telemetry.addData("Path", "Complete");
@@ -97,6 +98,9 @@ public class AutoL extends LinearOpMode {
 
     private void Move(double dir, float distMeters)
     {
+
+
+
         //move
         leftDrive.setPower(dir);
         rightDrive.setPower(dir);
@@ -112,6 +116,32 @@ public class AutoL extends LinearOpMode {
         //stop
         leftDrive.setPower(0);
         rightDrive.setPower(0);
+    }
+
+    private void Drive(double power, int distance)
+    {
+        leftDrive.setMode(DCMotorController.RunMode.RESET_ENCODERS);
+        rightDrive.setMode(DCMotorController.RunMode.RESET_ENCODERS);
+
+        leftDrive.setTargetPosition(distance);
+        rightDrive.setTargetPosition(distance);
+
+        leftDrive.setMode(DCMotorController.RunMode.RUN_TO_POSITION);
+        rightDrive.setMode(DCMotorController.RunMode.RUN_TO_POSITION);
+
+        leftDrive.setPower(power);
+        rightDrive.setPower(power);
+
+        while(leftDrive.isBusy() && rightDrive.isBusy())
+        {
+
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+        leftDrive.setMode(DCMotorController.RunMode.RUN_USING_ENCODERS);
+        rightDrive.setMode(DCMotorController.RunMode.RUN_USING_ENCODERS);
     }
 
     private void TurnRight90()
