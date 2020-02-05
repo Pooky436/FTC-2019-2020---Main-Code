@@ -8,7 +8,7 @@
   <a href = "Twitter">https://twitter.com/ForcesFtc</a> |
   <a href = "Instagram">https://www.instagram.com/ftcforcesunknown/</a> 
   <br><br>
-  <b>Autonomous Period: <b/><a href = "Autonomous_Period">https://bit.ly/398UByE</a>
+  <b>Autonomous Period: <b/><a href = "Autonomous_Period">https://bit.ly/2Ut1rLq</a>
   <br><br>
   <b>Driver Controlled Period: <b/><a href = "Driver_Period">https://bit.ly/2RYpyzR</a>
   <br><br>
