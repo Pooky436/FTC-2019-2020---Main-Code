@@ -10,7 +10,7 @@
   <br><br>
   <a href = "https://github.com/Pooky436/FTC-2019-2020---Main-Code/tree/master/Autonomous%20Period">Autonomous Period</a>
   <br><br>
-  <b>Driver Controlled Period: <b/><a href = "Driver_Period">https://bit.ly/2RYpyzR</a>
+  <a href = "https://github.com/Pooky436/FTC-2019-2020---Main-Code/tree/master/Driver%20Controlled%20Period">Driver Period</a>
   <br><br>
-  <b>Robot CAD Drawings (via DropBox): <b/><a href = "Driver_Period">https://bit.ly/2YCBpp4</a>
+  <a href = "https://www.dropbox.com/sh/x9pihreffq4v6n1/AAB829TE_VbjJbV8tYebmogHa?dl=0">Robot CAD Drawings (via DropBox)</a>
 </p>
